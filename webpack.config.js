@@ -1,11 +1,17 @@
 const path = require('path');
 const srcPath = path.resolve(__dirname, 'src');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
     app:'./src/js/index.js',
     print:'./src/js/print.js',
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: '配置文件修改名字'
+    })
+  ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
