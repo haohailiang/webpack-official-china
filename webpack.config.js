@@ -16,6 +16,13 @@ module.exports = {
           'css-loader'
         ],
         include: srcPath
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
+        ],
+        include: srcPath
       }
     ]
   }
