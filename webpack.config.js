@@ -23,6 +23,13 @@ module.exports = {
           'file-loader'
         ],
         include: srcPath
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader'
+        ],
+        include: srcPath
       }
     ]
   }
