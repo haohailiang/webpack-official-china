@@ -8,6 +8,7 @@ module.exports = {
     app:'./src/js/index.js',
     print:'./src/js/print.js',
   },
+  devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
