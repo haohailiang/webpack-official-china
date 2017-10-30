@@ -1,6 +1,7 @@
 const path = require('path');
 const srcPath = path.resolve(__dirname, 'src');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -8,6 +9,7 @@ module.exports = {
     print:'./src/js/print.js',
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: '配置文件修改名字'
     })
