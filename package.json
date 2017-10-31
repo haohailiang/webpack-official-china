@@ -9,7 +9,7 @@
     "dev": "webpack-dev-server --open --config webpack.dev.js",
     "server": "node ./src/server/server.js",
     "build": "webpack --config webpack.config.js",
-    "pro": "webpack --config webpack.prod.js"
+    "prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "haohailiang",
