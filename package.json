@@ -6,8 +6,10 @@
   "scripts": {
     "watch": "webpack --watch",
     "start": "webpack-dev-server --open",
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
     "server": "node ./src/server/server.js",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "pro": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "haohailiang",
@@ -22,7 +24,8 @@
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.6.0",
     "webpack-dev-middleware": "^1.12.0",
-    "webpack-dev-server": "^2.9.3"
+    "webpack-dev-server": "^2.9.3",
+    "webpack-merge": "^4.1.0"
   },
   "dependencies": {
     "lodash": "^4.17.4"
