@@ -2,6 +2,7 @@ const path = require('path');
 const srcPath = path.resolve(__dirname, 'src');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -16,12 +17,13 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: '配置文件修改名字'
-    })
+    }),
+    new UglifyJSPlugin()
   ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    // publicPath: '/'
   },
   module: {
     rules: [
