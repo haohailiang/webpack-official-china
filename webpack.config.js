@@ -1,5 +1,7 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 module.exports = {
   entry: {
@@ -11,22 +13,12 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      title: '加载图片文件'
+      title: '压缩混淆JS文件'
+    }),
+    new uglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
     })
   ],
-  module: {
-    rules: [
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192
-            }
-          }
-        ]
-      }
-    ]
-  }
 };
