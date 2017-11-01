@@ -11,14 +11,21 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      title: '加载行内CSS'
+      title: '加载图片文件'
     })
   ],
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       }
     ]
   }
