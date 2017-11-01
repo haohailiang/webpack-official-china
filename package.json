@@ -1,0 +1,25 @@
+{
+  "name": "webpack-official-china",
+  "version": "1.0.0",
+  "description": "阮一峰demo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haohailiang/webpack-official-china.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haohailiang/webpack-official-china/issues"
+  },
+  "homepage": "https://github.com/haohailiang/webpack-official-china#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
+  }
+}
