@@ -3,8 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    moduleA:'./src/js/moduleA.js',
-    moduleB:'./src/js/moduleB.js'
+    moduleA:'./src/js/moduleA.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -12,7 +11,15 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      title: '多入口文件'
+      title: '加载行内CSS'
     })
   ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      }
+    ]
+  }
 };

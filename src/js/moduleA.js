@@ -1,1 +1,1 @@
-document.write('<h1>this is moduleA</h1>');
+import './../css/moduleA.css';
