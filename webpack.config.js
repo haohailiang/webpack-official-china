@@ -1,7 +1,14 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+
+var devFlagPlugin = new webpack.DefinePlugin({
+  __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
+});
+
+var onlineFlagPlugin = new webpack.DefinePlugin({
+  __ONLINE__: JSON.stringify(JSON.parse(process.env.ONLINE || 'false'))
+});
 
 module.exports = {
   entry: {
@@ -13,12 +20,9 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      title: '压缩混淆JS文件'
+      title: '生成测试线上2套代码'
     }),
-    new uglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+    devFlagPlugin,
+    onlineFlagPlugin
   ],
 };
