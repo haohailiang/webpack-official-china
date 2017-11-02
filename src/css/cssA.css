@@ -1,4 +1,7 @@
-h1{
-	font-size: 50px;
-	color: #fff;
+html,body{
+	margin: 0;
+	height: 100%;
+}
+body{
+	background: url(../img/dog.jpeg) center center no-repeat;
 }
