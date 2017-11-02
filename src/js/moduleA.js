@@ -1,1 +1,2 @@
-module.exports = 'Hello World';
+var $ = require('jquery');
+$('body').text('Hello World vendor');
