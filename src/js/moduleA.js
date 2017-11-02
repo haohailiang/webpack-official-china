@@ -1,7 +1,4 @@
-var libA = require('./lib/libA.js');
-var libB = require('./lib/libB.js');
-import libC from './lib/libC.js';
+require('./../css/cssA.css');
+require('./../less/lessC.less');
 
-console.log('moduleA: ' + libA);
-console.log('moduleA: ' + libB);
-console.log('moduleA: ' + libC);
+document.write('<h1>我爱你中国</h1>');
