@@ -1,38 +1,27 @@
 const path = require('path');
 const HtmlwebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const temp_path = path.resolve(__dirname, 'src/temp');
 
 module.exports = {
   entry: {
-    moduleA:'./src/js/moduleA.js',
-    moduleB:'./src/js/moduleB.js',
-    vendors:['jquery']
+    moduleA:'./src/js/moduleA.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].[hash:4].bundle.js'
   },
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
   module: {
   },
   plugins: [
     //创建了两个HtmlWebpackPlugin的实例，生成两个页面
     new HtmlwebpackPlugin({
-      title: '多页面应用模板A',
-      template: path.resolve(temp_path, 'tempA.html'),
-      filename: 'moduleA.html',
-      //chunks这个参数告诉插件要引用entry里面的哪几个入口
-      chunks: ['moduleA', 'vendors'],
-      //要把script插入到标签里
-      inject: 'body'
-    }),
-    new HtmlwebpackPlugin({
-      title: '多页面应用模板B',
-      template: path.resolve(temp_path, 'tempB.html'),
-      filename: 'moduleB.html',
-      chunks: ['moduleB', 'vendors'],
-      inject: 'body'
+      title: '肩负3项使命',
     })
-  ]
+  ],
+  devServer: {
+    contentBase: "./src",//本地服务器所加载的页面所在的目录
+    historyApiFallback: true,//不跳转
+    port:3001,
+    inline: true//实时刷新
+  } 
 };
