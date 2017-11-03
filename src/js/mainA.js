@@ -1,2 +1,3 @@
-let moduleA = require('./moduleA.js');
-console.log(moduleA);
+import { foo } from './moduleA.js';
+
+document.write('Output: ' + foo());

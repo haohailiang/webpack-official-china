@@ -1,2 +1,6 @@
-let str = 'moduleA'
-module.exports = str;
+export function foo() {
+  return '天主';
+}
+export function bar() {
+  return '玛利亚';
+}
