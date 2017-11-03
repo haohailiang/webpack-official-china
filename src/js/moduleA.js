@@ -1,3 +1,2 @@
-require('./../css/moduleA.css');
-var moduleB = require('./moduleB.js');
-moduleB();
+let $ = require('jquery');
+$('<h4>this is moduleA page javascript !</h4>').appendTo("body");
