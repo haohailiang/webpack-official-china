@@ -1,1 +1,2 @@
-console.log('moduleC');
+let str = 'moduleC'
+module.exports = str;
