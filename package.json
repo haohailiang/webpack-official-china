@@ -18,6 +18,7 @@
   },
   "scripts": {
     "dev": "env DEBUG=true webpack-dev-server --open --config webpack.config.js",
+    "dev2": "env HOST=127.0.0.1 webpack-dev-server --open --config webpack.config.js",
     "online": "env ONLINE=true webpack -p",
     "build": "NODE_ENV=production webpack -p"
   },
