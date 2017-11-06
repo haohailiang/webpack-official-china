@@ -14,6 +14,22 @@ module.exports = {
     host: process.env.HOST, // Defaults to `localhost`
     port: 8090, // Defaults to 8080
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      }
+    ]
+  },
   plugins: [
     //创建了两个HtmlWebpackPlugin的实例，生成两个页面
     new htmlwebpackPlugin({
