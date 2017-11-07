@@ -27,6 +27,13 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        options: {
+          quiet: true,
+        },
+      },
     ],
   },
   plugins: [
