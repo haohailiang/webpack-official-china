@@ -13,6 +13,7 @@ module.exports = {
     host: process.env.HOST, // Defaults to `localhost`
     port: 8090, // Defaults to 8080
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
