@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlwebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -22,23 +23,40 @@ module.exports = {
   devtool: 'source-map',
   module: {
     rules: [
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     'style-loader',
+      //     {
+      //       loader: 'css-loader',
+      //       options: {
+      //         modules: true,
+      //       },
+      //     },
+      //   ],
+      // },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-            },
-          },
-        ],
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       },
+      // {
+      //   test: /\.js$/,
+      //   loader: 'eslint-loader',
+      //   options: {
+      //     quiet: true,
+      //   },
+      // },
       {
         test: /\.js$/,
-        loader: 'eslint-loader',
-        options: {
-          quiet: true,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env'],
+          },
         },
       },
     ],
@@ -49,5 +67,6 @@ module.exports = {
       title: 'webpack-dev-server',
     }),
     new webpack.HotModuleReplacementPlugin(), //HMR --hot
+    new ExtractTextPlugin("styles.css"),
   ],
 };
