@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const htmlwebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -12,6 +13,11 @@ module.exports = {
   devServer: {
     host: process.env.HOST, // Defaults to `localhost`
     port: 8090, // Defaults to 8080
+    overlay: {
+      errors: true,
+      warnings: true,
+    },
+    hotOnly: true, //HMR
   },
   devtool: 'source-map',
   module: {
@@ -42,5 +48,6 @@ module.exports = {
     new htmlwebpackPlugin({
       title: 'webpack-dev-server',
     }),
+    new webpack.HotModuleReplacementPlugin(), //HMR --hot
   ],
 };
