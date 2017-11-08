@@ -1,5 +1,2 @@
-export default {
-  log() {
-    console.log('456789');
-  },
-};
+let param = '祝你身体健康 !';
+export default param;
