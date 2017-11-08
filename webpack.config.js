@@ -1,10 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
-const htmlwebpackPlugin = require('html-webpack-plugin');
+const { WebPlugin, AutoWebPlugin } = require('web-webpack-plugin');
 
 module.exports = {
   entry: {
     mainA: './src/js/mainA.js',
+    mainB: './src/js/mainB.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -43,9 +44,20 @@ module.exports = {
     ],
   },
   plugins: [
-    //创建了两个HtmlWebpackPlugin的实例，生成两个页面
-    new htmlwebpackPlugin({
-      title: 'webpack-dev-server',
+    // 一个WebPlugin对应生成一个html文件
+    new WebPlugin({
+      //输出的html文件名称
+      filename: 'index.html',
+      //这个html依赖的`entry`
+      // requires: ['mainA'],
+      // requires: {
+      //   mainA:{
+      //      _ie:true,
+      //   }
+      // },
+      // html模版文件路径（相对于webpack.config.js的完整路径）
+      template: './src/template/template.html',
+      requires: ['mainA', 'mainB'],
     }),
     new webpack.HotModuleReplacementPlugin(), //HMR --hot
   ],

@@ -1,2 +1,2 @@
-let param = '祝你身体健康 !';
+let param = 'this is moduleB ! ';
 export default param;

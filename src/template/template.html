@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <!--加载一个在webpack里配置输出的chunk文件-->
+  <script src="mainA"></script>
+  <!--直接加载一个本地的文件的原内容，不走webpack的打包逻辑-->
+  <link rel="stylesheet" href="./../css/styleA.css?_inline">
+  <!--直接加载一个本地的文件的原内容，不走webpack的打包逻辑-->
+  <script src="./../js/localA.js"></script>
+</head>
+<body>
+<!--SCRIPT-->
+<footer>web-webpack-plugin</footer>
+</body>
+</html>

@@ -1,2 +1,2 @@
-let param = 'hello world !';
+let param = 'this is moduleA ! ';
 export default param;
