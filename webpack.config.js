@@ -4,8 +4,9 @@ const { WebPlugin, AutoWebPlugin } = require('web-webpack-plugin');
 
 module.exports = {
   entry: {
-    mainA: './src/js/mainA.js',
-    mainB: './src/js/mainB.js',
+    ieModule: './src/js/mainA.js',
+    inlineModule: './src/js/mainB.js',
+    devModule: './src/js/mainC.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -57,7 +58,18 @@ module.exports = {
       // },
       // html模版文件路径（相对于webpack.config.js的完整路径）
       template: './src/template/template.html',
-      requires: ['mainA', 'mainB'],
+      requires: {
+        'ieModule': {
+          _ie: true
+        },
+        'inlineModule': {
+          _inline: true,
+          _dist: true
+        },
+        'devModule': {
+          _dev: false
+        },
+      },
     }),
     new webpack.HotModuleReplacementPlugin(), //HMR --hot
   ],
