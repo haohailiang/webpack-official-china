@@ -1,5 +1,11 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+// Create multiple instances
+const extractCSS = new ExtractTextPlugin('[name]-[contenthash]-css.css');
+const extractLESS = new ExtractTextPlugin('[name]-[contenthash]-less.css');
 
 module.exports = {
   entry: './src/js/moduleA.js',
@@ -10,21 +16,20 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpg|jpeg|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 1024
-            }
-          }
-        ]
-      }
+        test: /\.css$/,
+        use: extractCSS.extract([ 'css-loader' ])
+      },
+      {
+        test: /\.less$/i,
+        use: extractLESS.extract([ 'css-loader', 'less-loader' ])
+      },
     ]
   },
   plugins: [
     new HTMLWebpackPlugin({
-      title: 'url-loader limit限制'
+      title: 'less加载器-css单独文件的抽离'
     }),
+    extractCSS,
+    extractLESS
   ]
 };
